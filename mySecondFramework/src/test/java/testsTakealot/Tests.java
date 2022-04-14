@@ -1,10 +1,15 @@
 package testsTakealot;
 
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import pageObjectsTakealot.BasePageTakealot;
 import pageObjectsTakealot.CartPage;
 import pageObjectsTakealot.DealsPage;
+import pageObjectsTakealot.ItemPage;
 import pageObjectsTakealot.LandingPage;
+import pageObjectsTakealot.ResultsPage;
+import pageObjectsTakealot.SearchResultsPage;
 
 public class Tests {
 
@@ -12,7 +17,15 @@ public class Tests {
 	LandingPage landPG = new LandingPage();
 	DealsPage dealsPG = new DealsPage();
 	CartPage cartPG = new CartPage();
+	BasePageTakealot baseTakePG = new BasePageTakealot();
+	ResultsPage resultsPG = new ResultsPage();
+	ItemPage itemPG = new ItemPage();
+	SearchResultsPage searchResultsPG = new SearchResultsPage();
 	
+	@BeforeTest
+		public void setUp() {
+		baseTakePG.ClickCookiesButton();
+	}
 	
 	@Test 
 	 public void GIVEN_ShopperOnLandingPage_WHEN_selectDailyDeals_THEN_DailyScreenOpen_AND_PhillipsAirfryerFirstItemDislayed() {
@@ -54,6 +67,24 @@ public class Tests {
 
 		
 	}
-
+	
+	/*2
+	* GIVEN the shopper is on the landing page
+	* WHEN he enters "DKNY" as the search string
+	* WHEN clicks the search button
+	* THEN "DKNY" is displayed as the first item in the grid
+	*/
+	@Test
+	public void GIVEN_shopperIsOnTheLandingPage_WHEN_ShopperENtersDKNY_AND_ShopperclicksthesearchButton_THEN_DKNYBeDelicois50ml() {
+		baseTakePG.NavigateToHomePage();
+		landPG.clickSearchBar();
+		landPG.enterTextInSearchBar("DKNY");
+		landPG.clickOnSearchButton();
+		searchResultsPG.clickFirstItem();
+		searchResultsPG.SwitchToNewTab();
+		//resultsPG.getElementTextofFirstItem();
+		String theText = resultsPG.getElementTextofFirstItem();
+		System.out.println("Print the Text" + " " + theText );
+	}
 
 }

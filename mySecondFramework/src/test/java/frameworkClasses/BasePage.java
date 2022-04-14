@@ -1,11 +1,15 @@
 package frameworkClasses;
 
+import java.util.Iterator;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -38,6 +42,23 @@ public class BasePage {
 				driver.manage().window().maximize();
 				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			}
+			else if (browser.equalsIgnoreCase("edge")) {
+				System.setProperty("webdriver.edge.driver", pdriverDir + "MicrosoftWebdriver.exe");
+				// create an instance of edge
+				driver = new EdgeDriver();
+				driver.get(URL);
+				driver.manage().window().maximize();
+				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+			}
+			else {
+				System.setProperty("webdriver.gecko.driver", pdriverDir + "geckodriver.exe");
+				// create an instance of edge
+				driver = new FirefoxDriver();
+				driver.get(URL);
+				driver.manage().window().maximize();
+				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			}
 		}
 	}
 	// Check of our Driver have been started , if not then start
@@ -58,19 +79,22 @@ public class BasePage {
 	}
 
 	// ...Wait for URL
-	public void waitForUrl(int elementWait, String pLocator) {
+	public void waitForUrl(int elementWait, String urlContains) {
 		WebDriverWait wait = new WebDriverWait(driver, elementWait);
-		wait.until(ExpectedConditions.urlContains(pLocator));
+		wait.until(ExpectedConditions.urlContains(urlContains));
 	}
 
-	// Method: Get text on element
+	// Method: Get text on an Element
 	public String getElementText(By pLocator) {
 		String elementText = getElement(pLocator).getText();
 		return elementText;
 	}
 
-	// Method: Click n a Element
-
+	// Method: Click on an Element
+	public void clickElement(By pLocator) {
+		waitforClick(30, pLocator);
+		getElement(pLocator).click();
+	}
 	// Method: Check Element exists
 
 	// Method: Get Element
@@ -82,11 +106,33 @@ public class BasePage {
 	// Method: Cleanup i.e close the Driver
 
 	// Method: Enter text on field
+	public void enterText(By pLocator, String enterText) {
+		waitforClick(30, pLocator);
+		driver.findElement(pLocator).sendKeys(enterText);
+	}
 
 	// Method: Clear text from field
 
-	// Method: Select from dropdown
+	// Method: Select from DropDown
 
 	// Method: Get text on Method - pass
 
+	// Method Switch Window
+	public void SwitchToNewTab() {
+		Set<String> handles = driver.getWindowHandles();
+		Iterator<String> it = handles.iterator();
+		String parentWindowID = it.next();
+		String childWindowID = it.next();
+		driver.switchTo().window(childWindowID);
+	}
+	
+	public void SwitchToParent() {
+		Set<String> handles = driver.getWindowHandles();
+		Iterator<String> it = handles.iterator();
+		String parentWindowID = it.next();
+		String childWindowID = it.next();
+		driver.switchTo().window(parentWindowID);
+	}
+
+	
 }
