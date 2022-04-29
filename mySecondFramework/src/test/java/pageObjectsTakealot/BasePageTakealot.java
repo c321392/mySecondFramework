@@ -7,17 +7,38 @@ import frameworkClasses.BasePage;
 
 public class BasePageTakealot extends BasePage {
 
-	//Method: Go to Home Page
+	// Method: Go to Home Page
 	public void NavigateToHomePage() {
 		driver.get("https://www.takealot.com/");
 		waitForUrl(30, "takealot");
 	}
-	
-	//Clear the Cookies bar
+
+	// Clear the Cookies bar
 	public void ClickCookiesButton() {
 		String cookiesButton = ".button.cookies-banner-module_dismiss-button_24Z98";
-		if(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cookiesButton)) != null)
+		try {
 			clickElement(By.cssSelector(cookiesButton));
+		}
+		// if(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(cookiesButton))
+		// != null)
+		catch (Exception e) {
+			System.out.println("Cookie not There");
+		}
 	}
 
+	public void quizPopUp() {
+		String nextButton = "_hj-3HqTJ__styles__surveyActionButton";
+		try {
+			clickElement(By.className("_hj-2fsWS__styles__closeEndedOptionText"));
+			clickElement(By.className(nextButton));
+			clickElement(By.className(nextButton));
+			clickElement(By.className("_hj-3Y4y-__styles__closeButton"));
+
+		}
+
+		catch (Exception e) {
+			System.out.println("Cookie not There");
+			e.printStackTrace();
+		}
+	}
 }

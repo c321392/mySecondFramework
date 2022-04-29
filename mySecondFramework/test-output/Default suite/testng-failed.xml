@@ -6,7 +6,7 @@
       <class name="testsTakealot.Tests">
         <methods>
           <include name="setUp"/>
-          <include name="GIVEN_shopperIsOnTheLandingPage_WHEN_ShopperENtersDKNY_AND_ShopperclicksthesearchButton_THEN_DKNYBeDelicois50ml"/>
+          <include name="GIVEN_FirstItemDKNY_CartANDAmendQTY"/>
         </methods>
       </class> <!-- testsTakealot.Tests -->
     </classes>

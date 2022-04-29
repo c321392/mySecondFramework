@@ -2,6 +2,7 @@ package pageObjectsTakealot;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Reporter;
 
 import frameworkClasses.BasePage;
 
@@ -66,4 +67,24 @@ public class LandingPage  extends BasePage {
 	public void clickElementTextofFirstItem() {
 		clickElement(By.className(null));
 	}
+	
+	//Check Cart Summary
+	public boolean cartSummary(String checkCount) {
+		String itemElement = getElementText(By.cssSelector(".badge-button-module_badge-button-outer_1gN1K"));
+		System.out.println(getElementText(By.cssSelector(itemElement)));
+		System.out.println(checkCount);
+		
+		if(getElementText(By.cssSelector(itemElement)).contains(checkCount))
+		{
+			Reporter.log("Amount Correct " + checkCount);
+			Reporter.log("Text is " + getElementText(By.cssSelector(itemElement)));
+
+			return true;
+		}
+		Reporter.log("Amount inCorrect " + checkCount);
+		Reporter.log("Text is " + getElementText(By.cssSelector(itemElement)));
+
+		return false;
+	}
+	
 }

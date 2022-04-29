@@ -1,20 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+<testng-results ignored="4" total="5" passed="1" failed="0" skipped="0">
   <reporter-output>
+    <line>
+      <![CDATA[Actual Searched Item Description is DKNY Be Delicious EDT 50ml]]>
+    </line>
+    <line>
+      <![CDATA[Actual Item Description is Wish List]]>
+    </line>
+    <line>
+      <![CDATA[Actual WL Item Description is DKNY Be Delicious EDT 50ml]]>
+    </line>
   </reporter-output>
-  <suite started-at="2022-04-14T06:18:45 CEST" name="Default suite" finished-at="2022-04-14T06:18:59 CEST" duration-ms="13560">
+  <suite started-at="2022-04-26T18:26:26 CEST" name="Default suite" finished-at="2022-04-26T18:26:47 CEST" duration-ms="21376">
     <groups>
     </groups>
-    <test started-at="2022-04-14T06:18:45 CEST" name="Default test" finished-at="2022-04-14T06:18:59 CEST" duration-ms="13560">
+    <test started-at="2022-04-26T18:26:26 CEST" name="Default test" finished-at="2022-04-26T18:26:47 CEST" duration-ms="21376">
       <class name="testsTakealot.Tests">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:testsTakealot.Tests@5c530d1e]" started-at="2022-04-14T06:18:45 CEST" name="setUp" finished-at="2022-04-14T06:18:50 CEST" duration-ms="4327" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testsTakealot.Tests@320e400]" started-at="2022-04-26T18:26:26 CEST" name="setUp" finished-at="2022-04-26T18:26:32 CEST" duration-ms="5496" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="GIVEN_shopperIsOnTheLandingPage_WHEN_ShopperENtersDKNY_AND_ShopperclicksthesearchButton_THEN_DKNYBeDelicois50ml()[pri:0, instance:testsTakealot.Tests@5c530d1e]" started-at="2022-04-14T06:18:50 CEST" name="GIVEN_shopperIsOnTheLandingPage_WHEN_ShopperENtersDKNY_AND_ShopperclicksthesearchButton_THEN_DKNYBeDelicois50ml" finished-at="2022-04-14T06:18:59 CEST" duration-ms="9173" status="PASS">
+        <test-method signature="GIVEN_FirstItemDKNY_CheckWishList()[pri:0, instance:testsTakealot.Tests@320e400]" started-at="2022-04-26T18:26:32 CEST" name="GIVEN_FirstItemDKNY_CheckWishList" finished-at="2022-04-26T18:26:47 CEST" duration-ms="15807" status="PASS">
           <reporter-output>
+            <line>
+              <![CDATA[Actual Searched Item Description is DKNY Be Delicious EDT 50ml]]>
+            </line>
+            <line>
+              <![CDATA[Actual Item Description is Wish List]]>
+            </line>
+            <line>
+              <![CDATA[Actual WL Item Description is DKNY Be Delicious EDT 50ml]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- GIVEN_shopperIsOnTheLandingPage_WHEN_ShopperENtersDKNY_AND_ShopperclicksthesearchButton_THEN_DKNYBeDelicois50ml -->
+        </test-method> <!-- GIVEN_FirstItemDKNY_CheckWishList -->
       </class> <!-- testsTakealot.Tests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
