@@ -143,7 +143,7 @@ public class BasePage {
 
 	// Method: Click on an Element
 	public void clickElement(By pLocator) {
-		waitforClick(30, pLocator);
+		waitforClick(100, pLocator);
 		getElement(pLocator).click();
 	}
 	// Method: Check Element exists

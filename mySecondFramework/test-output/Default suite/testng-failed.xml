@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testsTakealot.Tests">
+      <class name="testDemoWebShop.DWSTests">
         <methods>
-          <include name="setUp"/>
-          <include name="GIVEN_FirstItemDKNY_CartANDAmendQTY"/>
+          <include name="DWSBaseTest"/>
         </methods>
-      </class> <!-- testsTakealot.Tests -->
+      </class> <!-- testDemoWebShop.DWSTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

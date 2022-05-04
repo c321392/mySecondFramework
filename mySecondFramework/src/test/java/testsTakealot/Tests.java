@@ -101,7 +101,7 @@ public class Tests {
 		searchResultsPG.clickFirstItem();
 		searchResultsPG.SwitchToNewTab();
 		actualText1 = resultsPG.getElementTextofFirstItem();
-		softAssertion.assertEquals("sdfsdf","sdfsdfkkkk","Soft Assertion");
+//		softAssertion.assertEquals("sdfsdf","sdfsdfkkkk","Soft Assertion");
 	
 		System.out.println("Print the Text" + " " + actualText1 );
 		Reporter.log("Expected Value " + " " + xpectedText + " and Actual Value " + actualText1);
@@ -109,10 +109,10 @@ public class Tests {
 		actualDescription1 = resultsPG.getElementTextofSecondItem();
 		System.out.println("Print the Text" + " " + actualDescription1 );
 		Reporter.log(" Actual Value " + actualDescription1);
-		softAssertion.assertEquals("Charlotte","Louise","2nd Soft Assertion");
-		softAssertion.assertAll("All Soft Assertion");
+//		softAssertion.assertEquals("Charlotte","Louise","2nd Soft Assertion");
+//		softAssertion.assertAll("All Soft Assertion");
+//		searchResultsPG.closeChildBrowser();
 		searchResultsPG.closeChildBrowser();
-
 	}
 	/*2b
 	* GIVEN the shopper is on the landing page
