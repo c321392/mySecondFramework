@@ -9,6 +9,6 @@ public class DWSBasePage extends BasePage{
 
 		String URL = getDataConfigPropeties("systemUnderTest");
 		driver.get(URL);
-		waitForUrl(30, "Demo Web Shop");
+		waitForUrl(30, "demowebshop");
 	}
 }

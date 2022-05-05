@@ -12,6 +12,6 @@ public class TestDatePicker {
 	@Test
 	public void datePickerTest1() throws InterruptedException {
 		DPBasePG.ClickCookiesButton();
-		DPBasePG.selectDateFromDatePicker("9/21/2026 4:30 PM");
+		DPBasePG.selectDateFromDatePicker("9/21/2026 4:39 PM");
 	}
 }

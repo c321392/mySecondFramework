@@ -133,7 +133,10 @@ public class DPBasePage extends BasePage{
 				//System.out.println("The Selected Date  = " +  webElement.getText());
 				//webElement.click();				
 			}
-			
+			else {
+				System.out.println("The Desired Time not on the hour or half hour  = " + desiredDateTime);
+				break;
+			}
 		}
 		
 		

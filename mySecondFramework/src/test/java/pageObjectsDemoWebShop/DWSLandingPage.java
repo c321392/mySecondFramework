@@ -12,5 +12,6 @@ public class DWSLandingPage extends BasePage{
 		//clickElement(By.xpath("//body/div[4]/div[1]/div[4]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]"));
 		//clickElement(By.xpath("/html[1]/body[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]"));
 		clickElement(By.xpath("//body/div[@class='master-wrapper-page']//ul[@class='top-menu']//a[@href='/books']"));
+		//clickElement(By.xpath("/html/body//ul[@class='top-menu']//a[@href='/computers']"));
 	}
 }
