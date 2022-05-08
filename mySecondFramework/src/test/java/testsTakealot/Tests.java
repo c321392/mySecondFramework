@@ -86,34 +86,34 @@ public class Tests {
 	* WHEN clicks the search button
 	* THEN "DKNY" is displayed as the first item in the grid
 	*/
-	@Test
-	public void GIVEN_shopperIsOnTheLandingPage_WHEN_ShopperENtersDKNY_AND_ShopperclicksthesearchButton_THEN_DKNYBeDelicois50ml() {
-		//Variables
-		String searchInput = "DKNY";
-		String xpectedText =  searchInput;
-		String actualText1;
-		String actualDescription1;
-		//Process
-		baseTakePG.NavigateToHomePage();
-		landPG.clickSearchBar();
-		landPG.enterTextInSearchBar(searchInput);
-		landPG.clickOnSearchButton();
-		searchResultsPG.clickFirstItem();
-		searchResultsPG.SwitchToNewTab();
-		actualText1 = resultsPG.getElementTextofFirstItem();
-//		softAssertion.assertEquals("sdfsdf","sdfsdfkkkk","Soft Assertion");
-	
-		System.out.println("Print the Text" + " " + actualText1 );
-		Reporter.log("Expected Value " + " " + xpectedText + " and Actual Value " + actualText1);
-		//Assert.assertEquals(xpectedText, actualText1);
-		actualDescription1 = resultsPG.getElementTextofSecondItem();
-		System.out.println("Print the Text" + " " + actualDescription1 );
-		Reporter.log(" Actual Value " + actualDescription1);
-//		softAssertion.assertEquals("Charlotte","Louise","2nd Soft Assertion");
-//		softAssertion.assertAll("All Soft Assertion");
+//	@Test
+//	public void GIVEN_shopperIsOnTheLandingPage_WHEN_ShopperENtersDKNY_AND_ShopperclicksthesearchButton_THEN_DKNYBeDelicois50ml() {
+//		//Variables
+//		String searchInput = "DKNY";
+//		String xpectedText =  searchInput;
+//		String actualText1;
+//		String actualDescription1;
+//		//Process
+//		baseTakePG.NavigateToHomePage();
+//		landPG.clickSearchBar();
+//		landPG.enterTextInSearchBar(searchInput);
+//		landPG.clickOnSearchButton();
+//		searchResultsPG.clickFirstItem();
+//		searchResultsPG.SwitchToNewTab();
+//		actualText1 = resultsPG.getElementTextofFirstItem();
+////		softAssertion.assertEquals("sdfsdf","sdfsdfkkkk","Soft Assertion");
+//	
+//		System.out.println("Print the Text" + " " + actualText1 );
+//		Reporter.log("Expected Value " + " " + xpectedText + " and Actual Value " + actualText1);
+//		//Assert.assertEquals(xpectedText, actualText1);
+//		actualDescription1 = resultsPG.getElementTextofSecondItem();
+//		System.out.println("Print the Text" + " " + actualDescription1 );
+//		Reporter.log(" Actual Value " + actualDescription1);
+////		softAssertion.assertEquals("Charlotte","Louise","2nd Soft Assertion");
+////		softAssertion.assertAll("All Soft Assertion");
+////		searchResultsPG.closeChildBrowser();
 //		searchResultsPG.closeChildBrowser();
-		searchResultsPG.closeChildBrowser();
-	}
+//	}
 	/*2b
 	* GIVEN the shopper is on the landing page
 	* WHEN he enters "Boot" as the search string
@@ -152,33 +152,33 @@ public class Tests {
 	* THEN Open Cart Page
 	*/
 	
-	@Test
-	public void GIVEN_FirstItemDKNY_Cart() {
-		//Variables
-		String searchInput = "DKNY";
-		String xpectedText =  searchInput;
-		String actualText1;
-		String actualDescription1;
-
-		//Process
-		baseTakePG.NavigateToHomePage();
-		landPG.clickSearchBar();
-		landPG.enterTextInSearchBar(searchInput);
-		landPG.clickOnSearchButton();
-		searchResultsPG.clickFirstItem();
-		searchResultsPG.SwitchToNewTab();
-		actualText1 = resultsPG.getElementTextofFirstItem();
-		actualDescription1 = resultsPG.getElementTextofSecondItem();
-		Assert.assertEquals(actualText1.contains("DKNY"),true);
-		
-		resultsPG.clickAddToCart();
-		resultsPG.clickGoToCart();
-		
-		Assert.assertEquals(cartPG.checkCartCount("(1 item)"), true);
-		searchResultsPG.closeChildBrowser();
-		
-				
-	}
+//	@Test
+//	public void GIVEN_FirstItemDKNY_Cart() {
+//		//Variables
+//		String searchInput = "DKNY";
+//		String xpectedText =  searchInput;
+//		String actualText1;
+//		String actualDescription1;
+//
+//		//Process
+//		baseTakePG.NavigateToHomePage();
+//		landPG.clickSearchBar();
+//		landPG.enterTextInSearchBar(searchInput);
+//		landPG.clickOnSearchButton();
+//		searchResultsPG.clickFirstItem();
+//		searchResultsPG.SwitchToNewTab();
+//		actualText1 = resultsPG.getElementTextofFirstItem();
+//		actualDescription1 = resultsPG.getElementTextofSecondItem();
+//		Assert.assertEquals(actualText1.contains("DKNY"),true);
+//		
+//		resultsPG.clickAddToCart();
+//		resultsPG.clickGoToCart();
+//		
+//		Assert.assertEquals(cartPG.checkCartCount("(1 item)"), true);
+//		searchResultsPG.closeChildBrowser();
+//		
+//				
+//	}
 
 	/*3b
 	* GIVEN first item DKNY
@@ -186,53 +186,53 @@ public class Tests {
 	* THEN Open Cart Page
 	* AND Change the QTY
 	*/
-	
-	@Test
-	public void GIVEN_FirstItemDKNY_CartANDAmendQTY() throws InterruptedException {
-		//Variables
-		String searchInput = "DKNY";
-		String xpectedText =  searchInput;
-		String actualText1;
-		String actualDescription1;
-		int unitPrice;
-
-		//Process
-		baseTakePG.NavigateToHomePage();
-		landPG.clickSearchBar();
-		landPG.enterTextInSearchBar(searchInput);
-		landPG.clickOnSearchButton();
-		searchResultsPG.clickFirstItem();
-		searchResultsPG.SwitchToNewTab();
-//		actualText1 = resultsPG.getElementTextofFirstItem();
-//		actualDescription1 = resultsPG.getElementTextofSecondItem();
-//		Assert.assertEquals(actualText1.contains("DKNY"),true);
-		
-		unitPrice = resultsPG.getUnitPrice();
-		resultsPG.clickAddToCart();
-		resultsPG.clickGoToCart();
-		
-		Assert.assertEquals(cartPG.checkCartCount("(1 item)"), true);
-		cartPG.selectQTY("2");
-//		Thread.sleep(3000);
-//		Assert.assertEquals(cartPG.checkCartCount("(2 items)"), true);
-		cartPG.selectQTY("1");
-//		Thread.sleep(3000);
-		Assert.assertEquals(cartPG.checkCartCount("(1 item)"), true);
-		cartPG.removeFromCart();
-		Assert.assertEquals(cartPG.checkCartIsEmpty(), true);
-		//Assert.assertEquals(cartPG., null);
-		Assert.assertEquals(landPG.cartSummary("0"), true);
-		searchResultsPG.closeChildBrowser();
-
-	
-	}
-
-	/*4a
-	* GIVEN first item DKNY
-	* WHEN Click on Add to Wishlist
-	* THEN item selected displays in Wishlist
-	*/
-	
+//	
+//	@Test
+//	public void GIVEN_FirstItemDKNY_CartANDAmendQTY() throws InterruptedException {
+//		//Variables
+//		String searchInput = "DKNY";
+//		String xpectedText =  searchInput;
+//		String actualText1;
+//		String actualDescription1;
+//		int unitPrice;
+//
+//		//Process
+//		baseTakePG.NavigateToHomePage();
+//		landPG.clickSearchBar();
+//		landPG.enterTextInSearchBar(searchInput);
+//		landPG.clickOnSearchButton();
+//		searchResultsPG.clickFirstItem();
+//		searchResultsPG.SwitchToNewTab();
+////		actualText1 = resultsPG.getElementTextofFirstItem();
+////		actualDescription1 = resultsPG.getElementTextofSecondItem();
+////		Assert.assertEquals(actualText1.contains("DKNY"),true);
+//		
+//		unitPrice = resultsPG.getUnitPrice();
+//		resultsPG.clickAddToCart();
+//		resultsPG.clickGoToCart();
+//		
+//		Assert.assertEquals(cartPG.checkCartCount("(1 item)"), true);
+//		cartPG.selectQTY("2");
+////		Thread.sleep(3000);
+////		Assert.assertEquals(cartPG.checkCartCount("(2 items)"), true);
+//		cartPG.selectQTY("1");
+////		Thread.sleep(3000);
+//		Assert.assertEquals(cartPG.checkCartCount("(1 item)"), true);
+//		cartPG.removeFromCart();
+//		Assert.assertEquals(cartPG.checkCartIsEmpty(), true);
+//		//Assert.assertEquals(cartPG., null);
+//		Assert.assertEquals(landPG.cartSummary("0"), true);
+//		searchResultsPG.closeChildBrowser();
+//
+//	
+//	}
+//
+//	/*4a
+//	* GIVEN first item DKNY
+//	* WHEN Click on Add to Wishlist
+//	* THEN item selected displays in Wishlist
+//	*/
+//	
 	@Test
 	public void GIVEN_FirstItemDKNY_CheckWishList() {
 		//Variables
@@ -269,46 +269,46 @@ public class Tests {
 	* WHEN clicks the search button
 	* THEN "DKNY" is displayed as the first item in the grid
 	*/
-	@Test(dataProvider="Brand and Quantity")
-	public void SearchSiteWithExcel(String brand, String quantity) throws InterruptedException {
-		System.out.println(brand + " " + quantity);
-		//Variables
-		int unitPrice;
-		String itemCount;
-
-		//Process
-		baseTakePG.NavigateToHomePage();
-		landPG.clickSearchBar();
-		landPG.enterTextInSearchBar(brand);
-		landPG.clickOnSearchButton();
-		searchResultsPG.clickFirstItem();
-		searchResultsPG.SwitchToNewTab();
-
-		unitPrice = resultsPG.getUnitPrice();
-		resultsPG.clickAddToCart();
-		resultsPG.clickGoToCart();
-		
-		//Assert.assertEquals(cartPG.checkCartCount("(1 item)"), true);
-	
-		cartPG.selectQTY(quantity);
-		Thread.sleep(3000);
-		
-//		Assert.assertEquals(cartPG.checkCartCount("(2 items)"), true);
-//		cartPG.selectQTY("1");
-//		itemCount = cartPG.checkCartCount();
-//		Assert.assertEquals(itemCount.contains(quantity), true);
-
-		searchResultsPG.closeChildBrowser();
-
-	}
-	
-	@DataProvider(name = "Brand and Quantity")
-	public Object[][] getDataFromExcel(){
-		String excelDirectory = rExcel.getDataConfigPropeties("excelDataDir");
-		Object[][] errObj = rExcel.getExcelData(excelDirectory +"BrandANDQuantity.xlsx", "Sheet1");
-		return errObj;
-	}
-	
+//	@Test(dataProvider="Brand and Quantity")
+//	public void SearchSiteWithExcel(String brand, String quantity) throws InterruptedException {
+//		System.out.println(brand + " " + quantity);
+//		//Variables
+//		int unitPrice;
+//		String itemCount;
+//
+//		//Process
+//		baseTakePG.NavigateToHomePage();
+//		landPG.clickSearchBar();
+//		landPG.enterTextInSearchBar(brand);
+//		landPG.clickOnSearchButton();
+//		searchResultsPG.clickFirstItem();
+//		searchResultsPG.SwitchToNewTab();
+//
+//		unitPrice = resultsPG.getUnitPrice();
+//		resultsPG.clickAddToCart();
+//		resultsPG.clickGoToCart();
+//		
+//		//Assert.assertEquals(cartPG.checkCartCount("(1 item)"), true);
+//	
+//		cartPG.selectQTY(quantity);
+//		Thread.sleep(3000);
+//		
+////		Assert.assertEquals(cartPG.checkCartCount("(2 items)"), true);
+////		cartPG.selectQTY("1");
+////		itemCount = cartPG.checkCartCount();
+////		Assert.assertEquals(itemCount.contains(quantity), true);
+//
+//		searchResultsPG.closeChildBrowser();
+//
+//	}
+//	
+//	@DataProvider(name = "Brand and Quantity")
+//	public Object[][] getDataFromExcel(){
+//		String excelDirectory = rExcel.getDataConfigPropeties("excelDataDir");
+//		Object[][] errObj = rExcel.getExcelData(excelDirectory +"BrandANDQuantity.xlsx", "Sheet1");
+//		return errObj;
+//	}
+//	
 //	@AfterTest
 //	public void afterCleanup() {
 //		afterCleanup();

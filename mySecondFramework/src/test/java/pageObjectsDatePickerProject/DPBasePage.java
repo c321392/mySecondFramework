@@ -109,38 +109,56 @@ public class DPBasePage extends BasePage{
 		// click the time button
 		clickElement(By.cssSelector(".k-i-clock"));
 		// get a list of all the time
+		Thread.sleep(200);
 		List<WebElement> allTime = driver.findElements(By.xpath("//ul//li[@role='option']"));
 		//System.out.println("The .. Time  = " + allTime);
 		//desiredDateTime = desiredDateTime.split(" ")[1] + " " + desiredDateTime.split(" ")[2];
 		desiredDateTime = desiredDateTime.substring(desiredDateTime.indexOf(" ")+1);
 		System.out.println("The Desired Time  = " + desiredDateTime);
+		Thread.sleep(200);
 		
 		// select the desired time
 		// for loop syntax
 		// for (statement 1; statement 2; statement 3;) {
 		// statement 1 is executed on time
 		// statement 2 condition for executing the code block
-		// statement 3 is executed everytime after the code block}
+		// statement 3 is executed every time after the code block}
 		
 		// for each loop
 		// for each loop which is used exclusively for looping through elements in an array
 		// for (type variable name : array)
-		for(WebElement webElement: allTime) {
-			if (webElement.getText().equalsIgnoreCase(desiredDateTime)) {
-				System.out.println("The Selected Time  = " +  webElement.getText());
-				webElement.click();				
+		
+		//"9/21/2026 4:30 PM"
+		
+		int desiredMinute = Integer.parseInt(desiredDateTime.substring(2, 4));
+		System.out.println("The ... minute  = " +  desiredMinute);
 
+		if ((desiredMinute == 30) || (desiredMinute == 00)) {
+				for(WebElement webElement: allTime) {
+					if (webElement.getText().equalsIgnoreCase(desiredDateTime)) {
+						System.out.println("The Selected Time  = " +  webElement.getText());
 				//System.out.println("The Selected Date  = " +  webElement.getText());
-				//webElement.click();				
+						webElement.click();	
+					}
+				}
 			}
 			else {
 				System.out.println("The Desired Time not on the hour or half hour  = " + desiredDateTime);
-				break;
+				clickElement(By.cssSelector(".k-i-clock"));
+				//				webElement.click();				
+//				break;
 			}
-		}
+//		}
+//		
 		
 		
-		
+	}
+	
+	// Easy way to enter date and time
+	public void enterDateandTime(String enterDateTime){
+		String dateTimeSelector = "intput#datetimepicker";
+		clearText(By.cssSelector(dateTimeSelector));
+		enterText(By.cssSelector(dateTimeSelector),enterDateTime);
 	}
 	
 	// Clear the Cookies bar

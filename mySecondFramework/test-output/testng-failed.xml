@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testDemoWebShop.DWSTests">
+      <class name="TestDatePicker.TestDatePicker">
         <methods>
-          <include name="DWSBaseTest"/>
+          <include name="datePickerTest1"/>
         </methods>
-      </class> <!-- testDemoWebShop.DWSTests -->
+      </class> <!-- TestDatePicker.TestDatePicker -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

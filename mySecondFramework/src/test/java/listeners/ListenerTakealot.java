@@ -5,9 +5,12 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import frameworkClasses.BasePage;
+import frameworkClasses.Utilities;
 
 public class ListenerTakealot extends BasePage implements ITestListener{
 
+	Utilities uts = new Utilities();
+	
 	@Override
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
@@ -18,12 +21,27 @@ public class ListenerTakealot extends BasePage implements ITestListener{
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
 		ITestListener.super.onTestSuccess(result);
+		//when this method is triggered take a screenshot
+		try {
+			uts.takeSnapShot("On test Success" + uts.timeReturn() + ".png");
+			System.out.println("On test Success");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
 		ITestListener.super.onTestFailure(result);
+		
+		//when this method is triggered take a screenshot
+		try {
+			uts.takeSnapShot("On test failure" + uts.timeReturn() + ".png");
+			System.out.println("On test Failure");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

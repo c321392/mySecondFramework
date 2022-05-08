@@ -7,7 +7,7 @@
 	<test thread-count="5" name="Testing Takealot">
 
 		<classes>
-			<class name="testsTakealot.Tests" />
+			<class name="testsTakealot.testTakealotSmall" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
