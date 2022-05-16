@@ -1,5 +1,6 @@
 package testDemoWebShop;
 
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import frameworkClasses.BasePage;
@@ -16,6 +17,8 @@ public class DWSTests extends BasePage{
 	public void DWSBaseTest() throws InterruptedException {
 		
 		DWSBG.NavigateToHomePage();
+		DWSBG.getHomePageTitle();
+		Reporter.log("Home Page Title " + " " + DWSBG.getHomePageTitle());
 		Thread.sleep(5000);
 		DWSLP.clickBooks();
 		DWSRP.clickAddToCart();

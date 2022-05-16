@@ -1,9 +1,11 @@
 package frameworkClasses;
 
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.Iterator;
 import java.util.Properties;
 import java.util.Set;
@@ -18,6 +20,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.pdfbox.pdmodel.PDDocument;
+import org.pdfbox.util.PDFTextStripper;
+import org.testng.Assert;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -217,5 +222,38 @@ public class BasePage {
 		String childWindowID = it.next();
 		driver.quit();
 	}
+	
+	
+	public String readPDFContent(String appURL, int expectedNoPages) throws Exception {
+		
+		URL url = new URL(appURL);
+		InputStream input = url.openStream();
+		BufferedInputStream fileToParse = new BufferedInputStream(input);
+		PDDocument document = null;
+		String output = null;
+		
+		try {
+			document = PDDocument.load(fileToParse);
+			output = new PDFTextStripper().getText(document);
+			int numberOfPages = getPageCount(document);
+			Assert.assertEquals(numberOfPages, expectedNoPages);
+			
+		} finally {
+			if (document != null) {
+				document.close();
+			}
+			fileToParse.close();
+			input.close();
+		}
+		return output;
+		
+	}
+
+	private int getPageCount(PDDocument document) {
+		// TODO Auto-generated method stub
+		int pageCOunt = document.getNumberOfPages();
+		return pageCOunt;
+	}
+	//public int get
 
 }

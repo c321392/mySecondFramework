@@ -152,21 +152,21 @@ public class Tests {
 	* THEN Open Cart Page
 	*/
 	
-//	@Test
-//	public void GIVEN_FirstItemDKNY_Cart() {
-//		//Variables
-//		String searchInput = "DKNY";
-//		String xpectedText =  searchInput;
-//		String actualText1;
-//		String actualDescription1;
-//
-//		//Process
-//		baseTakePG.NavigateToHomePage();
-//		landPG.clickSearchBar();
-//		landPG.enterTextInSearchBar(searchInput);
-//		landPG.clickOnSearchButton();
-//		searchResultsPG.clickFirstItem();
-//		searchResultsPG.SwitchToNewTab();
+	@Test
+	public void GIVEN_FirstItemDKNY_Cart() {
+		//Variables
+		String searchInput = "DKNY";
+		String xpectedText =  searchInput;
+		String actualText1;
+		String actualDescription1;
+
+		//Process
+		baseTakePG.NavigateToHomePage();
+		landPG.clickSearchBar();
+		landPG.enterTextInSearchBar(searchInput);
+		landPG.clickOnSearchButton();
+		searchResultsPG.clickFirstItem();
+		searchResultsPG.SwitchToNewTab();
 //		actualText1 = resultsPG.getElementTextofFirstItem();
 //		actualDescription1 = resultsPG.getElementTextofSecondItem();
 //		Assert.assertEquals(actualText1.contains("DKNY"),true);
@@ -175,10 +175,10 @@ public class Tests {
 //		resultsPG.clickGoToCart();
 //		
 //		Assert.assertEquals(cartPG.checkCartCount("(1 item)"), true);
-//		searchResultsPG.closeChildBrowser();
-//		
-//				
-//	}
+		searchResultsPG.closeChildBrowser();
+		
+				
+	}
 
 	/*3b
 	* GIVEN first item DKNY
@@ -263,6 +263,13 @@ public class Tests {
 		searchResultsPG.closeChildBrowser();
 	}
 
+	@Test
+	public void checkPDF() throws Exception {
+		String pdfURL ="";
+		int expectedNoPages = 1;
+		String pdfContent = landPG.readPDFContent(pdfURL, expectedNoPages);
+		Assert.assertTrue(pdfContent.contains(""));
+	}
 	/*5a
 	* GIVEN the shopper is on the landing page
 	* WHEN he enters "DKNY" as the search string

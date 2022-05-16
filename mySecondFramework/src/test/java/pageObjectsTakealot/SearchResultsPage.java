@@ -10,7 +10,7 @@ public class SearchResultsPage  extends BasePage{
 	public void clickFirstItem() {
 		clickElement(By.cssSelector(
 				"div:nth-of-type(2) > .grid.search-product  .product-anchor.product-card-module_product-anchor_TUCBV"));
-		
+	
 	}
 
 

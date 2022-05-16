@@ -11,4 +11,10 @@ public class DWSBasePage extends BasePage{
 		driver.get(URL);
 		waitForUrl(30, "demowebshop");
 	}
+	
+	public String getHomePageTitle () {
+		String myTitle = driver.getTitle();
+		System.out.println("THis is the Page Title = " + myTitle);
+		return myTitle;
+	}
 }
